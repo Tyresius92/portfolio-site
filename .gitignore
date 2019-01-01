@@ -1,0 +1,5 @@
+# dependencies
+node_modules/
+
+# Secret config items
+config.js
