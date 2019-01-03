@@ -33,7 +33,7 @@ router.post("/contact", function(req, res) {
     smtpTransport.sendMail(mailOptions, function(err, info) {
         if (err) {
             console.log(err); 
-            req.flash("error", "Something went wrong. Please try again or reach out to tyrel@tyrelclayton.com"); 
+            req.flash("error", "Something went wrong. Please try again or reach out to " + process.env.ALIAS); 
             res.redirect("/contact");
         }
         req.flash("success", "Your message was sent! Tyrel should be in touch soon!");
