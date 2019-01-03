@@ -23,7 +23,7 @@ router.post("/contact", function(req, res) {
 
     var mailOptions = {
         from: process.env.EMAIL,
-        to: process.env.ALIAS,
+        to: process.env.ALIAS, 
         replyTo: req.body.email,
         subject: req.body.subject, 
         text: "Someone reached out to you at tyrelclayton.com! \n\nName: " + req.body.name + "\n\nEmail: " + req.body.email + "\n\nMessage:\n\n" + req.body.message,
