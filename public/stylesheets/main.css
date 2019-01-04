@@ -1,39 +1,38 @@
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
-  background: url(../escheresque_ste.png) repeat 0 0;
+    margin-bottom: 100px;
+    background: url(../escheresque_ste.png) repeat 0 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Raleway', Helvetica, Arial, sans-serif;
-  color: white;
+    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+    color: white;
 }
 
 p, div {
-  font-family: 'Goudy Bookletter 1911', Georgia, Times, serif;
-  font-size: 20px;
-  color: white;
+    font-family: 'Goudy Bookletter 1911', Georgia, Times, serif;
+    font-size: 20px;
+    color: white;
 }
 
 h1 {
-  text-shadow: 1px 1px 1px #ccc;
+    text-shadow: 1px 1px 1px #ccc;
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  margin-top: 40px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
 }
 
 footer div a {
-  color: white;
+    color: white;
 }
 
 .navbar {
