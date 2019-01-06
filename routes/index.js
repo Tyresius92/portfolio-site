@@ -26,8 +26,8 @@ router.post("/contact", function(req, res) {
         to: process.env.ALIAS, 
         replyTo: req.body.email,
         subject: req.body.subject, 
-        text: "Someone reached out to you at tyrelclayton.com! \n\nName: " + req.body.name + "\n\nEmail: " + req.body.email + "\n\nMessage:\n\n" + req.body.message,
-        html: "<h3>Someone reached out to you at tyrelclayton.com!</h3><ul><li><strong>Name:</strong> " + req.body.name + "</li><li><strong>Email:</strong> " + req.body.email + "</li></ul><p>Message:<br/><br/>" + req.body.message + "</p>"
+        text: req.body.name + " reached out to you at tyrelclayton.com! \n\nName: " + req.body.name + "\n\nEmail: " + req.body.email + "\n\nMessage:\n\n" + req.sanitize(req.body.message),
+        html: "<h3>" + req.body.name + " reached out to you at tyrelclayton.com!</h3><ul><li><strong>Name:</strong> " + req.body.name + "</li><li><strong>Email:</strong> " + req.body.email + "</li></ul><p>Message:<br/><br/>" + req.sanitize(req.body.message) + "</p>"
     };
 
     smtpTransport.sendMail(mailOptions, function(err, info) {

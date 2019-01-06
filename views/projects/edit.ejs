@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <h3 class="text-center">Edit <%= project.name %></h3>
+    <div class="container col-md-6">
+        <form action="/projects/<%= project._id %>?_method=PUT" method="POST">
+            <div class="form-group">
+                <input class="form-control" type="text" name="project[name]" placeholder="Project Name" value="<%= project.name %>">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="project[url]" placeholder="Project URL" value="<%= project.url %>">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="project[github]" placeholder="Github Repo" value="<%= project.github %>">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="project[description]" placeholder="Description"><%= project.description %></textarea>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="project[myRole]" placeholder="What I Did"><%= project.myRole %></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Edit Project!</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<% include ../partials/footer %>

@@ -2,16 +2,30 @@
 var express = require("express"); 
 var app = express(); 
 var bodyParser = require("body-parser"); 
+var mongoose = require("mongoose"); 
+var expressSanitizer = require("express-sanitizer");
 var expressSession = require("express-session");
 var flash = require("connect-flash"); 
 var nodemailer = require("nodemailer"); 
+var methodOverride = require("method-override");
 
 // import routes
 var indexRoutes = require("./routes/index"); 
+var projectRoutes = require("./routes/projects")
+
+// Create default database URL
+var dburl = process.env.DATABASEURL || "mongodb://localhost:27017/portfolio";
+
+// Connect to the database
+mongoose.connect(dburl, {useNewUrlParser: true }).catch(function(reason) {
+    console.log("Unable to connect to the mongodb instance. Error: ", reason); 
+});
 
 // Set up default app settings
 app.use(express.static(__dirname + "/public")); 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride("_method")); 
+app.use(expressSanitizer()); 
 app.set("view engine", "ejs");
 
 app.use(expressSession({
@@ -30,6 +44,7 @@ app.use(function(req, res, next) {
 
 // Set up the route prefixes
 app.use("/", indexRoutes); 
+app.use("/projects", projectRoutes);
 
 // Set up the error 404 page
 app.use(function(req, res, next) {
