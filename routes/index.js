@@ -46,26 +46,6 @@ router.get("/about", function(req, res) {
     res.render("about"); 
 });
 
-router.get("/register", function(req, res) {
-    res.render("register"); 
-});
-
-router.post("/register", function(req, res) {
-    var newUser = new User({username: req.body.username}); 
-
-    User.register(newUser, req.body.password, function(err, user) {
-        if (err) {
-            console.log(err); 
-            req.flash("error", err.message); 
-            return res.redirect("register"); 
-        }
-        passport.authenticate("local")(req, res, function() {
-            req.flash("success", "Account created! Now go delete these routes"); 
-            res.redirect("/"); 
-        });
-    });
-});
-
 router.get("/login", function(req, res) {
     res.render("login"); 
 });
