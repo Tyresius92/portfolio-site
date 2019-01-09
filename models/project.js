@@ -6,6 +6,7 @@ var projectSchema = new mongoose.Schema({
     github: String, 
     blurb: String,
     description: String, 
+    technologies: String,
     myRole: String
 });
 

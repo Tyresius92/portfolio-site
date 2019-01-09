@@ -46,3 +46,7 @@ footer div a {
 .navbar {
     margin-bottom: 40px;
 }
+
+.btn i {
+    font-size: 1.5em;
+}
