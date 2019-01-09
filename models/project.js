@@ -4,6 +4,7 @@ var projectSchema = new mongoose.Schema({
     name: String, 
     url: String, 
     github: String, 
+    blurb: String,
     description: String, 
     myRole: String
 });
