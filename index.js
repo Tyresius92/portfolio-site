@@ -3,11 +3,16 @@ var express = require("express");
 var app = express(); 
 var bodyParser = require("body-parser"); 
 var mongoose = require("mongoose"); 
+var passport = require("passport"); 
+var LocalStrategy = require("passport-local");
 var expressSanitizer = require("express-sanitizer");
 var expressSession = require("express-session");
 var flash = require("connect-flash"); 
 var nodemailer = require("nodemailer"); 
 var methodOverride = require("method-override");
+
+// import user model for Passport setup
+var User = require("./models/user");
 
 // import routes
 var indexRoutes = require("./routes/index"); 
@@ -34,9 +39,16 @@ app.use(expressSession({
     saveUninitialized: false
 }));
 
-// Set up flash message framework
+app.use(passport.initialize()); 
+app.use(passport.session()); 
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser()); 
+passport.deserializeUser(User.deserializeUser()); 
+
+// Set up flash messages and current user
 app.use(flash()); 
 app.use(function(req, res, next) {
+    res.locals.currentUser = req.user;
     res.locals.error = req.flash("error"); 
     res.locals.success = req.flash("success"); 
     next(); 

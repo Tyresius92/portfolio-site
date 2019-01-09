@@ -1,6 +1,7 @@
 var express = require("express"); 
 var router = express.Router({mergeParams: true}); 
 var Project = require("../models/project"); 
+var middleware = require("../middleware");
 
 router.get("/", function(req, res) {
     Project.find({}, function(err, allProjects) {
@@ -14,7 +15,7 @@ router.get("/", function(req, res) {
     });
 });
 
-router.post("/", function(req, res) {
+router.post("/", middleware.isLoggedIn, function(req, res) {
     var newProject = req.body.project; 
 
     Project.create(newProject, function(err, newlyCreated) {
@@ -26,7 +27,7 @@ router.post("/", function(req, res) {
     });
 });
 
-router.get("/new", function(req, res) {
+router.get("/new", middleware.isLoggedIn, function(req, res) {
     res.render("projects/new"); 
 });
 
@@ -42,7 +43,7 @@ router.get("/:id", function(req, res) {
     });
 });
 
-router.get("/:id/edit", function(req, res) {
+router.get("/:id/edit", middleware.isLoggedIn, function(req, res) {
     Project.findById(req.params.id, function(err, foundProject) {
         if (err) {
             console.log(err); 
@@ -54,7 +55,7 @@ router.get("/:id/edit", function(req, res) {
     });
 });
 
-router.put("/:id", function(req, res) {
+router.put("/:id", middleware.isLoggedIn, function(req, res) {
     Project.findByIdAndUpdate(req.params.id, req.body.project, function(err, updatedProject) {
         if (err) {
             console.log(err); 
@@ -67,7 +68,7 @@ router.put("/:id", function(req, res) {
     });
 });
 
-router.delete("/:id", function(req, res) {
+router.delete("/:id", middleware.isLoggedIn, function(req, res) {
     Project.findByIdAndRemove(req.params.id, function(err) {
         if (err) {
             console.log(err); 
