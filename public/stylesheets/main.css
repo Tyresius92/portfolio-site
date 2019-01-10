@@ -1,3 +1,12 @@
+:root {
+    --tc-blue: #007077;
+    --tc-green: #007700;
+    --tc-green-accent: #1d911d;
+    --tc-green-2: #00773f;
+    --tc-purple: #553060;
+    --tc-purple-accent: #66247a;
+}
+
 html {
     position: relative;
     min-height: 100%;
@@ -6,18 +15,18 @@ html {
 body {
     margin-bottom: 100px;
     background: url(../escheresque_ste.png) repeat 0 0;
+    color: white;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Eczar', Serif;
-    color: white;
-}
+/*    color: white;
+*/}
 
 p, div, * {
     font-family: 'Merriweather', Serif;
-/*    font-size: 20px;
-*/    color: white;
-}
+/*    color: white;
+*/}
 
 h1 {
     text-shadow: 1px 1px 1px #ccc;
@@ -28,7 +37,7 @@ hr {
 }
 
 .bar-bg {
-    background-color: #007077;
+    background-color: var(--tc-blue);
 }
 
 .footer {
@@ -49,4 +58,28 @@ footer div a {
 
 .btn i {
     font-size: 1.5em;
+}
+
+.btn-success {
+    background-color: var(--tc-green);
+    color: white;
+    border-color: var(--tc-green-2);
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active {
+    background-color: var(--tc-green-accent);
+    color: white;
+    border-color: var(--tc-green);
+}
+
+.btn-info {
+    background-color: var(--tc-purple);
+    color: white;
+    border-color: var(--tc-purple-accent);
+}
+
+.btn-info:hover, .btn-info:focus, .btn-info:active {
+    background-color: var(--tc-purple-accent);
+    color: white;
+    border-color: var(--tc-purple);
 }
