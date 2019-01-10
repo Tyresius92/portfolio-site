@@ -7,7 +7,8 @@ var projectSchema = new mongoose.Schema({
     blurb: String,
     description: String, 
     technologies: String,
-    myRole: String
+    myRole: String, 
+    lessons: String
 });
 
 var Project = mongoose.model("Project", projectSchema); 
