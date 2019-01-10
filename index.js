@@ -10,6 +10,7 @@ var expressSession = require("express-session");
 var flash = require("connect-flash"); 
 var nodemailer = require("nodemailer"); 
 var methodOverride = require("method-override");
+var middleware = require("./middleware");
 
 // import user model for Passport setup
 var User = require("./models/user");
@@ -17,6 +18,9 @@ var User = require("./models/user");
 // import routes
 var indexRoutes = require("./routes/index"); 
 var projectRoutes = require("./routes/projects")
+
+// Set default environment
+env = process.env.NODE_ENV || 'development';
 
 // Create default database URL
 var dburl = process.env.DATABASEURL || "mongodb://localhost:27017/portfolio";
@@ -32,6 +36,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method")); 
 app.use(expressSanitizer()); 
 app.set("view engine", "ejs");
+
+// force https in production
+if (env === 'production') {
+    app.use(middleware.forceSsl);
+}
 
 app.use(expressSession({
     secret: process.env.EXPRESS_SECRET, 
