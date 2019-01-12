@@ -1,10 +1,31 @@
 :root {
-    --tc-blue: #007077;
-    --tc-green: #007700;
-    --tc-green-accent: #1d911d;
-    --tc-green-2: #00773f;
-    --tc-purple: #553060;
-    --tc-purple-accent: #66247a;
+    /* Primary Color */
+    --tc-primary-0: #007277;
+    --tc-primary-1: #00cbd4;
+    --tc-primary-2: #008d93;
+    --tc-primary-3: #00595d;
+    --tc-primary-4: #003c3e;
+
+    /* Secondary Color 1 */
+    --tc-secondary-1-0: #c58400;
+    --tc-secondary-1-1: #ffab00;
+    --tc-secondary-1-2: #f4a400;
+    --tc-secondary-1-3: #9a6700;
+    --tc-secondary-1-4: #674600;
+
+    /* Secondary Color 2 */
+    --tc-secondary-2-0: #C50500;
+    --tc-secondary-2-1: #ff0700;
+    --tc-secondary-2-2: #f40600;
+    --tc-secondary-2-3: #9a0400;
+    --tc-secondary-2-4: #670300;
+
+    /* Main Complement Color */
+    --tc-complement-0: #c55b00;
+    --tc-complement-1: #ff7600;
+    --tc-complement-2: #f47100;
+    --tc-complement-3: #9a4700;
+    --tc-complement-4: #673000;
 }
 
 html {
@@ -20,13 +41,11 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Eczar', Serif;
-/*    color: white;
-*/}
+}
 
 p, div, * {
     font-family: 'Merriweather', Serif;
-/*    color: white;
-*/}
+}
 
 h1 {
     text-shadow: 1px 1px 1px #ccc;
@@ -37,7 +56,7 @@ hr {
 }
 
 .bar-bg {
-    background-color: var(--tc-blue);
+    background-color: var(--tc-primary-0);
 }
 
 .footer {
@@ -58,28 +77,29 @@ footer div a {
 
 .btn i {
     font-size: 1.5em;
+    margin-right: 4px;
 }
 
 .btn-success {
-    background-color: var(--tc-green);
+    background-color: var(--tc-primary-0);
     color: white;
-    border-color: var(--tc-green-2);
+    border-color: var(--tc-primary-2);
 }
 
-.btn-success:hover, .btn-success:focus, .btn-success:active {
-    background-color: var(--tc-green-accent);
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open .dropdown-toggle.btn-success {
+    background-color: var(--tc-primary-2);
     color: white;
-    border-color: var(--tc-green);
+    border-color: var(--tc-primary-3);
 }
 
 .btn-info {
-    background-color: var(--tc-purple);
+    background-color: var(--tc-complement-0);
     color: white;
-    border-color: var(--tc-purple-accent);
+    border-color: var(--tc-complement-2);
 }
 
-.btn-info:hover, .btn-info:focus, .btn-info:active {
-    background-color: var(--tc-purple-accent);
+.btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open .dropdown-toggle.btn-info {
+    background-color: var(--tc-complement-2);
     color: white;
-    border-color: var(--tc-purple);
+    border-color: var(--tc-complement-3);
 }
