@@ -1,19 +1,23 @@
 <% include ../partials/header %>
 
 <div class="container">
+    <h1><%= project.name %></h1>
     <div class="row">
-        <div class="col-md-3">
-            <p><a href="<%= project.github %>" class="btn btn-success btn-block"><i class="fab fa-github float-left"></i>View the Github Repo</a></p>
-            <p><a href="<%= project.url %>" class="btn btn-info btn-block"><i class="far fa-eye float-left"></i>View the project</a></p>
-        </div>
+        <% if (project.github || project.url) { %>
+            <div class="col-md-3">
+                <% if (project.github) { %>
+                    <p><a href="<%= project.github %>" class="btn btn-success btn-block"><i class="fab fa-github float-left"></i>View the Github Repo</a></p>
+                <% } %>
+                <% if (project.url) { %>
+                    <p><a href="<%= project.url %>" class="btn btn-info btn-block"><i class="far fa-eye float-left"></i><%= project.name %></a></p>
+                <% } %>
+            </div>
+        <% } %>    
         <div class="col-md-9">
-            <h1><%= project.name %></h1>
-            <h3>Project Overview</h3>
+            <h3>Overview</h3>
             <p><%= project.description %></p>
             <h3>Technologies Used</h3>
             <p><%= project.technologies %></p>
-            <h3>What I Did</h3>
-            <p><%= project.myRole %></p>
         </div>
     </div>
 </div>

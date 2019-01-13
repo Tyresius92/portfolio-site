@@ -11,8 +11,10 @@
                     <p><%= project.blurb %></p>
                 </div>
                 <p>
-                    <a href="<%= project.url %>" class="btn btn-sm btn-success"><i class="far fa-eye float-left"></i>See the project!</a>
-                    <a href="/projects/<%= project._id %>" class="btn btn-sm btn-info"><i class="fas fa-binoculars float-left"></i>More Info</a>
+                    <a href="/projects/<%= project._id %>" class="btn btn-block btn-info"><i class="fas fa-binoculars float-left"></i>More Info</a>
+                    <% if (project.url) { %>
+                        <a href="<%= project.url %>" class="btn btn-block btn-success"><i class="far fa-eye float-left"></i>See the project!</a>
+                    <% } %>
                 </p>
             </div>
         <% }) %>
