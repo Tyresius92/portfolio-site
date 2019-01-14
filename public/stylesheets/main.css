@@ -51,12 +51,20 @@ h1 {
     text-shadow: 1px 1px 1px #ccc;
 }
 
+.blockquote-footer {
+    color: var(--tc-primary-2);
+}
+
 hr {
     background-color: white;
 }
 
 .bar-bg {
     background-color: var(--tc-primary-0);
+}
+
+a {
+    color: var(--tc-primary-1);
 }
 
 .footer {
@@ -107,4 +115,8 @@ footer div a {
     background-color: var(--tc-complement-2);
     color: white;
     border-color: var(--tc-complement-3);
+}
+
+.complete {
+    text-decoration: line-through;
 }
