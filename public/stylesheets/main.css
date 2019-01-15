@@ -118,5 +118,15 @@ footer div a {
 }
 
 .complete {
-    text-decoration: line-through;
+    position: relative;
+}
+
+.complete::after {
+    border-bottom: 0.2em solid var(--tc-complement-2);
+    content: "";
+    left: 0;
+    margin-top: calc(0.125em / 2 * -1);
+    position: absolute;
+    right: 0;
+    top: 50%;
 }
