@@ -1,4 +1,7 @@
 :root {
+    /*Custom Palette*/
+    /*Palette URL: http://paletton.com/#uid=43j0u0k++oIZBNs+Wu-+Yjh+LcZ  */
+
     /* Primary Color */
     --tc-primary-0: #007277;
     --tc-primary-1: #00cbd4;
@@ -53,6 +56,12 @@ h1 {
 
 h2 {
     text-decoration: underline;
+}
+
+.jumbotron h1 {
+    color: var(--tc-primary-0);
+    font-weight: 600;
+    text-shadow: none;
 }
 
 .blockquote-footer {

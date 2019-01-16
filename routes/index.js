@@ -42,14 +42,6 @@ router.post("/contact", function(req, res) {
     });
 });
 
-router.get("/about", function(req, res) {
-    res.render("about"); 
-});
-
-router.get("/about/impossible-list", function(req, res) {
-    res.render("impossible"); 
-})
-
 router.get("/login", function(req, res) {
     res.render("login"); 
 });

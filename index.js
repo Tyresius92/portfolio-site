@@ -18,6 +18,7 @@ var User = require("./models/user");
 // import routes
 var indexRoutes = require("./routes/index"); 
 var projectRoutes = require("./routes/projects")
+var aboutRoutes = require("./routes/about");
 
 // Set default environment
 env = process.env.NODE_ENV || 'development';
@@ -66,6 +67,7 @@ app.use(function(req, res, next) {
 // Set up the route prefixes
 app.use("/", indexRoutes); 
 app.use("/projects", projectRoutes);
+app.use("/about", aboutRoutes);
 
 // Set up the error 404 page
 app.use(function(req, res, next) {
