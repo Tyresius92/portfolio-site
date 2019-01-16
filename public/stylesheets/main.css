@@ -132,6 +132,7 @@ footer div a {
 
 ul {
     list-style: none;
+    text-indent: -35px;
 }
 
 ul li:not(.complete):before {
