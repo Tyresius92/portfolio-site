@@ -58,8 +58,13 @@ h2 {
     text-decoration: underline;
 }
 
+.jumbotron {
+    background-color: rgba(233, 236, 239, 0.4);
+    border-radius: 20px;
+}
+
 .jumbotron h1 {
-    color: var(--tc-primary-0);
+    color: var(--tc-primary-3);
     font-weight: 600;
     text-shadow: none;
 }
